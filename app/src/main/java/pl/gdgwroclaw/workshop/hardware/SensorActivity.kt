@@ -23,6 +23,11 @@ class SensorActivity : AppCompatActivity(), SensorEventListener {
         )
     }
 
+    override fun onDestroy() {
+        sensorManager.unregisterListener(this)
+        super.onDestroy()
+    }
+
     override fun onAccuracyChanged(sensor: Sensor, accurracy: Int) = Unit
 
     override fun onSensorChanged(event: SensorEvent) {
